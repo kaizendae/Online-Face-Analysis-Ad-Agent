@@ -25,7 +25,7 @@ def main():
     video_capture = cv2.VideoCapture(0)
     # infinite loop, break by key ESC
     while True:
-        if not video_capture.isOpened():
+        if not video_capture.isOpened(): 
             sleep(5)
         # Capture frame-by-frame
         ret, frame = video_capture.read()

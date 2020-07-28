@@ -8,12 +8,12 @@ class VideoCamera(object):
         # instead.
         
         self.video = cv2.VideoCapture(0)
-        face = FaceCV(depth=16, width=8)
+        self.face = FaceCV(depth=16, width=8)
         # If you decide to use video.mp4, you must have this file in the folder
         # as the main.py.
         # self.video = cv2.VideoCapture('video.mp4')
     
-    def __del__(self):
+    def __del__(self): 
         self.video.release()
     
     def get_frame(self):
@@ -22,6 +22,6 @@ class VideoCamera(object):
         # so we must encode it into JPEG in order to correctly display the
         # video stream.
 
-        #outimg,ages,genders = face.detect_and_predict(image)
-        ret, jpeg = cv2.imencode('.jpg', image)
+        outimg,ages,genders = self.face.detect_and_predict(image)
+        ret, jpeg = cv2.imencode('.jpg', outimg)
         return jpeg.tobytes()
