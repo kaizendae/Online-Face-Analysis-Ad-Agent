@@ -22,6 +22,6 @@ class VideoCamera(object):
         # so we must encode it into JPEG in order to correctly display the
         # video stream.
 
-        outimg,ages,genders = self.face.detect_and_predict(image)
+        outimg,ages,genders, g_label = self.face.detect_and_predict(image)
         ret, jpeg = cv2.imencode('.jpg', outimg)
-        return jpeg.tobytes()
+        return jpeg.tobytes(), ages, g_label

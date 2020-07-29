@@ -94,6 +94,7 @@ class FaceCV(object):
         '''
         predicted_ages = []
         predicted_genders = []
+        g_label = ''
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         face_cascade = cv2.CascadeClassifier(self.CASE_PATH)
@@ -126,6 +127,7 @@ class FaceCV(object):
                                             "F" if predicted_genders[i][0] > 0.5 else "M")
                     
                     frame = self.draw_label(frame, (face[0], face[1]), label)
-        else:
-            print('No faces')
-        return (frame,predicted_ages,predicted_genders)
+                    g_label = "{}".format("Female" if predicted_genders[i][0] > 0.5 else "Male")
+        #else:
+            #print('No faces')
+        return (frame,predicted_ages,predicted_genders, g_label)

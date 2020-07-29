@@ -1,17 +1,137 @@
 <html>
   <head>
     <title>Video Streaming Demonstration</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cosmo/bootstrap.min.css">
     <style>
-      img {
+      #bg {
         display: block;
         margin-left: auto;
         margin-right: auto;
-      width: 35%
+        width: 100%;
       }
-        </style>
+      .jumbotron.vertical-center {
+        margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
+      }
+
+      .vertical-center {
+        min-height: 100%;  
+        min-height: 100vh; 
+
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex; 
+        
+        /* Align the bootstrap's container vertically */
+          -webkit-box-align : center;
+        -webkit-align-items : center;
+            -moz-box-align : center;
+            -ms-flex-align : center;
+                align-items : center;
+        width: 100%;
+              -webkit-box-pack : center;
+                  -moz-box-pack : center;
+                  -ms-flex-pack : center;
+        -webkit-justify-content : center;
+                justify-content : center;
+      }
+      #cam {
+        width: 100%;
+        background: #f7f7f7;
+        border: 1px solid #dfdfdf;
+        padding: 90px 0px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Video Streaming Demonstration</h1>
-    <img id="bg" src="{{ url_for('video_feed') }}">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand text-center" href="#">Online Face Analysis Ad Agent</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="jumbotron vertical-center">
+      <div class="container">
+        <div class="row">
+          <h1 class="mb-3 text-center" style="width: 100%;">Video Streaming Demonstration </h1>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="https://wallpapercave.com/wp/Uo0eAES.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="https://i2.wp.com/recommendmeanime.com/wp-content/uploads/2017/04/best-sites-to-find-free-anime-wallpapers.jpg" alt="Second slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="row mb-3">
+              <div id="cam">
+                <div id="camload" class="text-center">
+                  <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
+                <img id="bg" src="{{ url_for('video_feed') }}" style="display: none;">
+              </div>
+            </div>
+            <div class="row">
+              <div class="card" style="width: 100%;">
+                <div class="card-header">
+                  Predictions
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Ages: <span id="ages"></span></li>
+                  <li class="list-group-item">Gender: <span id="genders"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      setTimeout(() => { 
+        $("#bg").show();
+        $("#cam").css("padding", "0px");
+        $("#camload").hide();
+      }, 2000);
+
+      setInterval(getPredictionInfo, 5000); //300000 MS == 5 minutes
+
+      function getPredictionInfo() {
+        $.ajax('/video_info', 
+        {
+            dataType: 'json', // type of response data
+            timeout: 500,     // timeout milliseconds
+            success: function (data,status,xhr) {   // success callback function
+                console.log(data);
+                $('#ages').html(data[0]);
+                $('#genders').html(data[1]);
+            },
+            error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                console.log(errorMessage);
+            }
+        });
+      }
+    </script>
   </body>
 </html>
