@@ -3,8 +3,7 @@ from camera import VideoCamera
 
 app = Flask(__name__)
 
-global ages
-global genders
+
 info = []
 
 @app.route('/')
@@ -16,14 +15,18 @@ def gen(camera):
         global info
         data = camera.get_frame()
         frame = data[0]
+        
+        if info != [[], ''] or info == []:
+            info = []
 
-        info = []
-        info.append(data[1])
-        info.append(data[2])
+            info.append(data[1])
+            info.append(data[2])
+        else:
+            info = [['Loading...'], 'Loading...']
 
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
+            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+ 
 @app.route('/video_feed')
 def video_feed():
     return Response(gen(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -31,8 +34,8 @@ def video_feed():
 @app.route('/video_info')
 def video_info():
     global info
-    print('====  ')
-    print(info)
+    # print('====  ')
+    # print(info)
     return app.response_class(
         response=json.dumps(info),
         status=200,

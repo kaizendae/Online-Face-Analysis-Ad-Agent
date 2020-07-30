@@ -47,7 +47,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand text-center" href="#">Online Face Analysis Ad Agent</a>
+      <a class="navbar-brand text-center" href="/">Online Face Analysis Ad Agent</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,7 +55,7 @@
     <div class="jumbotron vertical-center">
       <div class="container">
         <div class="row">
-          <h1 class="mb-3 text-center" style="width: 100%;">Video Streaming Demonstration </h1>
+          <h1 class="mb-3 text-center" style="width: 100%;"> </h1>
         </div>
         <div class="row">
           <div class="col-8">
@@ -109,29 +109,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
-      setTimeout(() => { 
-        $("#bg").show();
-        $("#cam").css("padding", "0px");
-        $("#camload").hide();
-      }, 2000);
-
-      setInterval(getPredictionInfo, 5000); //300000 MS == 5 minutes
-
-      function getPredictionInfo() {
-        $.ajax('/video_info', 
-        {
-            dataType: 'json', // type of response data
-            timeout: 500,     // timeout milliseconds
-            success: function (data,status,xhr) {   // success callback function
-                console.log(data);
-                $('#ages').html(data[0]);
-                $('#genders').html(data[1]);
-            },
-            error: function (jqXhr, textStatus, errorMessage) { // error callback 
-                console.log(errorMessage);
-            }
+        $(window).on('load', function(){
+          $("#bg").show();
+          $("#cam").css("padding", "0px");
+          $("#camload").hide();
+          setInterval(getPredictionInfo, 5000); //300000 MS == 5 minutes
         });
-      }
+        function getPredictionInfo() {
+          $.ajax('/video_info', 
+          {
+              dataType: 'json', // type of response data
+              timeout: 500,     // timeout milliseconds
+              success: function (data,status,xhr) {   // success callback function
+                  console.log(data);
+                  $('#ages').html(data[0]);
+                  $('#genders').html(data[1]);
+              },
+              error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                  console.log(errorMessage);
+              }
+          });
+        }
     </script>
   </body>
 </html>
