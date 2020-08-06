@@ -1,8 +1,14 @@
 from flask import Flask, render_template, Response, json
+import mysql.connector
+from mysql.connector import Error
 from camera import VideoCamera
 
 app = Flask(__name__)
 
+connection = mysql.connector.connect(host='localhost',
+                                             database='ads_agent',
+                                             user='root',
+                                             password='')
 
 info = []
 
@@ -34,8 +40,28 @@ def video_feed():
 @app.route('/video_info')
 def video_info():
     global info
-    # print('====  ')
-    # print(info)
+    images = []
+
+    if info == [[], '']:
+        print("List is empty")
+    elif info != []:
+        print('====  ')
+        print(info)
+        try:
+            cursor = connection.cursor()
+            sql_fetch_images_query = """SELECT image from ads where age = %s and gender = %s"""
+            cursor.execute(sql_fetch_images_query, (info[0][0],info[1]))
+            record = cursor.fetchall()
+            for row in record:
+                print("Imaged = ", row[0], )
+                images.append(row[0])
+        except mysql.connector.Error as error:
+            print("Failed to read BLOB data from MySQL table {}".format(error))
+        finally:
+            if (connection.is_connected()):
+                cursor.close()
+                print("MySQL connection cursor is closed")
+    info.append(images)
     return app.response_class(
         response=json.dumps(info),
         status=200,
