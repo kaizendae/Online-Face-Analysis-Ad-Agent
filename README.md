@@ -1,4 +1,4 @@
-# Recommendation system based on age and gender estimation
+# Online face analysis for digital signage
 
 <br>
 
