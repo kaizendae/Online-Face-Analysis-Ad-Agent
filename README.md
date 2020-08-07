@@ -68,7 +68,8 @@ Note that the database login informations is :
 - ``database='ads_agent'``
 - ``user='root'``
 - ``password=''``
-
+<br>
+Note that you have to install ``mysql-connector`` you can download it [her](https://dev.mysql.com/downloads/connector/python/).
 
 ## How to run it
 When you install all requirements and you make you environment ready run the [``main.py``](/main.py) and check the [http://localhost:5000/](http://127.0.0.1:5000/)
