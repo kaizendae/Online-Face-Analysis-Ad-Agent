@@ -71,7 +71,7 @@ Note that you have to install ``mysql-connector`` you can download it [her](http
 
 
 ## How to run it
-Note that the pretrained ``weights`` is too big to uploaded in github so download it [her](https://drive.google.com/drive/folders/1F3FUxlpobEYTzTgn4S6Z2mpCwUQWUsZq) and add it to ``pretrained_models`` folder.
+In order to run the demo first you have the download our pretrained ``weights`` [her](https://drive.google.com/drive/folders/1F3FUxlpobEYTzTgn4S6Z2mpCwUQWUsZq) and put it in the folder ``./pretrained_weights``.
 <br>
 When you install all requirements and you make you environment ready run the [``main.py``](/main.py) and check the [http://localhost:5000/](http://127.0.0.1:5000/).
 
