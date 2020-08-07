@@ -15,13 +15,13 @@ The dataset used in this project is the “IMDB-WIKI” consists of 500000 image
 The model that was used to perform this task of age and gender detection is [Wide ResNet](https://arxiv.org/abs/1605.07146).
 
 
-## Environment used
+## Dependencies
 - Python 3.7 64bit
 - Windows 10 64 bit / version 1909
-- The machine that we use for training has a nvidia GPU
 - Tensorflow / keras Deep Learning frameworks 
 - Fask web server
-- OpenCV for face detection
+- OpenCV4
+- numpy
 - MYSQL database to store the ads
 
 
@@ -60,7 +60,7 @@ Note that is better to create a new virtual environment and install requirements
    ```
 
 
-## Database used
+## Ads database
 We use the mysql database to store the ads informations.
 create an databese named `ads_agent` and run the script [database.sql](/database.sql).
 <br>
@@ -73,7 +73,9 @@ Note that the database login informations is :
 Note that you have to install ``mysql-connector`` you can download it [her](https://dev.mysql.com/downloads/connector/python/).
 
 ## How to run it
-When you install all requirements and you make you environment ready run the [``main.py``](/main.py) and check the [http://localhost:5000/](http://127.0.0.1:5000/)
+Note that the pretrained ``weights`` is too big to uploaded in github so download it [her](https://drive.google.com/drive/folders/1F3FUxlpobEYTzTgn4S6Z2mpCwUQWUsZq) and add it to ``pretrained_models`` folder.
+<br>
+When you install all requirements and you make you environment ready run the [``main.py``](/main.py) and check the [http://localhost:5000/](http://127.0.0.1:5000/).
 
 
 ## Demo
