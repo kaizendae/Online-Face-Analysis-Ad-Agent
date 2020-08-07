@@ -18,11 +18,8 @@ The model that was used to perform this task of age and gender detection is [Wid
 ## Dependencies
 - Python 3.7 64bit
 - Windows 10 64 bit / version 1909
-- Tensorflow / keras Deep Learning frameworks 
 - Fask web server
-- OpenCV4
-- numpy
-- MYSQL database to store the ads
+- MYSQL server 5.*
 
 
 ## Recommended
