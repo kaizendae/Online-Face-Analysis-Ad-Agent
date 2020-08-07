@@ -2,6 +2,7 @@ from flask import Flask, render_template, Response, json
 import mysql.connector
 from mysql.connector import Error
 from camera import VideoCamera
+import random
 
 app = Flask(__name__)
 
@@ -53,7 +54,9 @@ def video_info():
             cursor.execute(sql_fetch_images_query, (info[0][0],info[1]))
             record = cursor.fetchall()
             for row in record:
-                print("Imaged = ", row[0], )
+                # nbr = random.randint(0, (len(record)-1))
+                # print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", nbr)
+                print("Imaged = ", row[0])
                 images.append(row[0])
         except mysql.connector.Error as error:
             print("Failed to read BLOB data from MySQL table {}".format(error))

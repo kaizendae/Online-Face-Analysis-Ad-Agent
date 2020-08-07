@@ -1,4 +1,11 @@
-numpy==1.13.3+mkl
+tensorflow==1.14.0
 Keras==2.0.8
 opencv==1.0.1
-opencv-python==3.3.0+contrib
+opencv-python==4.3.0.36
+numpy==1.18.4
+Flask==1.1.2
+Flask-Compress==1.5.0
+mysql-connector==2.2.9
+mysql-connector-python==8.0.21
+mysql-connector-python-rf==2.2.2
+request==2019.4.13
