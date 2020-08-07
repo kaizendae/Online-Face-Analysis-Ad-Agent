@@ -6,10 +6,7 @@ import random
 
 app = Flask(__name__)
 
-connection = mysql.connector.connect(host='localhost',
-                                             database='ads_agent',
-                                             user='root',
-                                             password='')
+connection = mysql.connector.connect(host='localhost', database='ads_agent', user='root', password='')
 
 info = []
 
@@ -54,8 +51,6 @@ def video_info():
             cursor.execute(sql_fetch_images_query, (info[0][0],info[1]))
             record = cursor.fetchall()
             for row in record:
-                # nbr = random.randint(0, (len(record)-1))
-                # print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", nbr)
                 print("Imaged = ", row[0])
                 images.append(row[0])
         except mysql.connector.Error as error:
