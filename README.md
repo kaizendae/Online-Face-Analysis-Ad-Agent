@@ -72,6 +72,7 @@ Note that the database login informations is :
 <br>
 Note that you have to install ``mysql-connector`` you can download it [her](https://dev.mysql.com/downloads/connector/python/).
 
+
 ## How to run it
 Note that the pretrained ``weights`` is too big to uploaded in github so download it [her](https://drive.google.com/drive/folders/1F3FUxlpobEYTzTgn4S6Z2mpCwUQWUsZq) and add it to ``pretrained_models`` folder.
 <br>
