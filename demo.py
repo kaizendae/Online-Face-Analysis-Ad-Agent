@@ -4,8 +4,8 @@ import cv2
     
 def get_args():
     parser = argparse.ArgumentParser(description="This script detects faces from web cam input, "
-                                                 "and estimates age and gender for the detected faces.",
-                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+                                    "and estimates age and gender for the detected faces.",
+                                    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument("--depth", type=int, default=16,
                         help="depth of network")
@@ -22,7 +22,7 @@ def main():
     face = FaceCV(depth=depth, width=width)
 
     # 0 means the default video capture device in OS
-    video_capture = cv2.VideoCapture(0)
+    video_capture = cv2.VideoCapture("")
     # infinite loop, break by key ESC
     while True:
         if not video_capture.isOpened(): 
