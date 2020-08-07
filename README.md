@@ -3,7 +3,8 @@
 <br>
 
 ## Summary
-The project is recommendation system that recommended products to the users based on age and gender estimated by the trained model.
+
+The project is an ad agent that analyses people's faces and predicts their age and gender to show custom ads, the agent is powered by face detection, age & gender prediction algorithms and connected to a SQL database of ads.
 
 
 ## Dataset 
