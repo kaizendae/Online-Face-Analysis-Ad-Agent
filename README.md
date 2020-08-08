@@ -82,7 +82,9 @@ Congratulation.
 The video above shown the demonstration :
 <br>
 <center>
+
   ![demo](demo/demo.gif)
+  
 </center>
 
 
