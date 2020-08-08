@@ -61,15 +61,12 @@ Note that is better to create a new virtual environment and install requirements
 We use the mysql database to store the ads informations.
 create an databese named `ads_agent` and run the script [database.sql](/database.sql).
 
-<br>
-
 Note that the database login informations is :
 - ``host='localhost'``
 - ``database='ads_agent'``
 - ``user='root'``
 - ``password=''``
 
-<br>
 
 Note that you have to install ``mysql-connector`` you can download it [her](https://dev.mysql.com/downloads/connector/python/).
 
@@ -77,19 +74,13 @@ Note that you have to install ``mysql-connector`` you can download it [her](http
 ## How to run it
 In order to run the demo first you have the download our pretrained ``weights`` [her](https://drive.google.com/drive/folders/1F3FUxlpobEYTzTgn4S6Z2mpCwUQWUsZq) and put it in the folder ``./pretrained_weights``.
 
-<br>
-
 When you install all requirements and you make you environment ready run the [``main.py``](/main.py) and check the [http://localhost:5000/](http://127.0.0.1:5000/).
 
 
 ## Demo
 Congratulation.
 
-<br>
-
 The video above shown the demonstration :
-
-<br>
 
 <center>
 
