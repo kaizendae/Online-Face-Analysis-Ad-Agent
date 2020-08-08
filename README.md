@@ -42,8 +42,6 @@ Note that is better to create a new virtual environment and install requirements
   ```
   Now you can install any python packages you want in the command line that you are activating the virtual environment and they will be isolated.
 
-  <br>
-
   To exit the virtual environment. 
 - ```
     deactivate
