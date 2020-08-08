@@ -53,7 +53,7 @@ Note that is better to create a new virtual environment and install requirements
 
 ## Requirements
 - Get the package from PyPi.
-- All requirements that you will need with its version it's exist in `requirements.txt` so you need just to run this    command to install it all :
+- All requirements that you will need with its version it's exist in `requirements.txt` so you need just to run this command to install it all :
    ```
    !pip install -r requirements.txt
    ```
