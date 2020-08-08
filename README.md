@@ -41,7 +41,9 @@ Note that is better to create a new virtual environment and install requirements
     venv\Scripts\activate.bat
   ```
   Now you can install any python packages you want in the command line that you are activating the virtual environment and they will be isolated.
+
   <br>
+
   To exit the virtual environment. 
 - ```
     deactivate
@@ -60,27 +62,37 @@ Note that is better to create a new virtual environment and install requirements
 ## Ads database
 We use the mysql database to store the ads informations.
 create an databese named `ads_agent` and run the script [database.sql](/database.sql).
+
 <br>
+
 Note that the database login informations is :
 - ``host='localhost'``
 - ``database='ads_agent'``
 - ``user='root'``
 - ``password=''``
+
 <br>
+
 Note that you have to install ``mysql-connector`` you can download it [her](https://dev.mysql.com/downloads/connector/python/).
 
 
 ## How to run it
 In order to run the demo first you have the download our pretrained ``weights`` [her](https://drive.google.com/drive/folders/1F3FUxlpobEYTzTgn4S6Z2mpCwUQWUsZq) and put it in the folder ``./pretrained_weights``.
+
 <br>
+
 When you install all requirements and you make you environment ready run the [``main.py``](/main.py) and check the [http://localhost:5000/](http://127.0.0.1:5000/).
 
 
 ## Demo
 Congratulation.
+
 <br>
+
 The video above shown the demonstration :
+
 <br>
+
 <center>
 
   ![demo](demo/demo.gif)
