@@ -2,7 +2,7 @@ tensorflow==1.14.0
 Keras==2.0.8
 opencv==1.0.1
 opencv-python==4.3.0.36
-numpy==1.18.4
+numpy==1.22.0
 Flask==1.1.2
 Flask-Compress==1.5.0
 mysql-connector==2.2.9
